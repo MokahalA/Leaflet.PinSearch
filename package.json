@@ -1,6 +1,6 @@
 {
   "name": "leaflet.pinsearch",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A leaflet plugin for a Search bar with autocomplete on existing pins on the map.",
   "main": "src/Leaflet.PinSearch.js",
   "scripts": {
