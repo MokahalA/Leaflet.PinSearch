@@ -30,11 +30,11 @@ npm i leaflet.pinsearch
 Include files using npkg CDN
 
 ```
-<link rel="stylesheet" href="https://unpkg.com/leaflet.pinsearch@1.0.0/src/Leaflet.PinSearch.css" crossorigin=""></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet.pinsearch/src/Leaflet.PinSearch.css" crossorigin=""></script>
 ```
 
 ```
-<script src="https://unpkg.com/leaflet.pinsearch@1.0.0/src/Leaflet.PinSearch.js" crossorigin=""></script>
+<script src="https://unpkg.com/leaflet.pinsearch/src/Leaflet.PinSearch.js" crossorigin=""></script>
 ```
 
 
