@@ -1,0 +1,21 @@
+{
+  "name": "leaflet.pinsearch",
+  "version": "1.0.0",
+  "description": "A leaflet plugin for a Search bar with autocomplete on existing pins on the map.",
+  "main": "src/Leaflet.PinSearch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "leaflet": "*"
+  },
+  "author": {
+    "name": "Ahmad El Mokahal",
+    "email": "a.mokahal_99@hotmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MokahalA/Leaflet.PinSearch"
+  },
+  "license": "MIT"
+}

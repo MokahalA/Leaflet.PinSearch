@@ -1,51 +1,18 @@
-# Leaflet.PinSearch
-<div align ="center">
-
-A leaflet plugin for a Search bar with autocomplete on existing pins on the map.
-
-[**Demo**](https://mokahala.github.io/hosting/Leaflet.PinSearch/index.html)
-
-</div>
-
-
-
-### Features
-
-- Autocomplete feature on all pin titles.
-- Configurable height and width for the search bar.
-- Configurable limit for the maximum number of search results displayed.
-
-
-
-
-### How to install plugin
-
-
-Option 1: Using npm
-
-```
-npm i leaflet.pinsearch
-```
-
-Option 2: Using npkg CDN
-
-
-
-```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.pinsearch@1.0.0/src/Leaflet.PinSearch.css" crossorigin=""></script>
-```
-
-```
+    <title>Leaflet PinSearch Example</title>
+</head>
+<body>
+    <div id="map" style="height: 400px;"></div>
+    
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="https://unpkg.com/leaflet.pinsearch@1.0.0/src/Leaflet.PinSearch.js" crossorigin=""></script>
-
-```
-
-
-### Example usage
-
-See the `example.html` file for sample code.
-
-```
+    <script>
         var map = L.map('map').setView([51.505, -0.09], 13);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -72,4 +39,6 @@ See the `example.html` file for sample code.
             searchBarHeight: '30px',
             maxSearchResults: 3
         }).addTo(map);
-```
+    </script>
+</body>
+</html>
