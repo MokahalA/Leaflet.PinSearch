@@ -3,7 +3,7 @@
 
 A leaflet plugin for a Search bar with autocomplete on existing pins on the map.
 
-[**Demo**](https://mokahala.github.io/hosting/Leaflet.PinSearch/index.html)
+## [**Demo**](https://mokahala.github.io/hosting/Leaflet.PinSearch/index.html)
 
 </div>
 
