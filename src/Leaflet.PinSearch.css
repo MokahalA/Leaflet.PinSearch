@@ -11,7 +11,7 @@
 .search-input {
   width: 200px;
   height: 30px;
-  padding: 5px 30px 5px 10px; 
+  padding: 5px 30px 5px 10px;
 }
 
 .search-icon {
@@ -19,7 +19,7 @@
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 1.5em; 
+  font-size: 1.5em;
   pointer-events: none;
 }
 
@@ -42,5 +42,9 @@
 }
 
 .search-results-item:hover {
+  background-color: #f0f0f0;
+}
+
+.search-results-item.highlight {
   background-color: #f0f0f0;
 }

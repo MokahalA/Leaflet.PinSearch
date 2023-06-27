@@ -64,7 +64,13 @@ L.Control.PinSearch = L.Control.extend({
       self._onSearchItemClick(query);
     });
 
-    document.addEventListener('click', this._onDocumentClick.bind(this));
+    resultsContainer.addEventListener('keydown', function(event) {
+      self._onResultsItemKeydown(event);
+    });
+
+    document.addEventListener('keyup', function(event) {
+      self._onDocumentKeyup(event);
+    });
 
     return container;
   },
@@ -109,14 +115,89 @@ L.Control.PinSearch = L.Control.extend({
     this._showSearchResults(matches);
   },
 
-  _onDocumentClick: function(event) {
-    var container = this._container;
-    var resultsContainer = container.querySelector('.search-results');
-    if (resultsContainer && resultsContainer.style.display === 'block' && !container.contains(event.target)) {
-      resultsContainer.style.display = 'none';
+  _onResultsItemKeydown: function(event) {
+    var key = event.key;
+    if (key === 'ArrowUp' || key === 'ArrowDown') {
+      event.preventDefault();
+
+      var items = this._container.querySelectorAll('.search-results-item');
+      var highlightedItem = this._container.querySelector('.search-results-item.highlight');
+      var currentIndex = highlightedItem ? Array.from(items).indexOf(highlightedItem) : -1;
+
+      if (key === 'ArrowUp' && currentIndex > 0) {
+        currentIndex--;
+      } else if (key === 'ArrowDown' && currentIndex < items.length - 1) {
+        currentIndex++;
+      }
+
+      if (highlightedItem) {
+        highlightedItem.classList.remove('highlight');
+      }
+
+      var currentItem = items[currentIndex];
+      currentItem.classList.add('highlight');
+      currentItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      currentItem.focus(); // Set focus to the highlighted item
+    } else if (key === 'Enter') {
+      var highlightedItem = this._container.querySelector('.search-results-item.highlight');
+      if (highlightedItem) {
+        var query = highlightedItem.textContent;
+        console.log(query);
+        this._onSearchItemClick(query);
+      }
     }
   },
 
+  _onDocumentKeyup: function(event) {
+    var container = this._container;
+    var resultsContainer = container.querySelector('.search-results');
+    var input = container.querySelector('.search-input');
+    
+    if (event.key === 'Escape') {
+      if (resultsContainer.style.display === 'block') {
+        resultsContainer.style.display = 'none';
+      } else {
+        input.value = '';
+      }
+      
+      input.focus();
+      return;
+    }
+    
+    if (resultsContainer && resultsContainer.style.display === 'block' && container.contains(document.activeElement)) {
+      var key = event.key;
+      if (key === 'ArrowUp' || key === 'ArrowDown') {
+        event.preventDefault();
+  
+        var items = resultsContainer.querySelectorAll('.search-results-item');
+        var highlightedItem = resultsContainer.querySelector('.search-results-item.highlight');
+        var currentIndex = highlightedItem ? Array.from(items).indexOf(highlightedItem) : -1;
+  
+        if (key === 'ArrowUp' && currentIndex > 0) {
+          currentIndex--;
+        } else if (key === 'ArrowDown' && currentIndex < items.length - 1) {
+          currentIndex++;
+        }
+  
+        if (highlightedItem) {
+          highlightedItem.classList.remove('highlight');
+        }
+  
+        var currentItem = items[currentIndex];
+        currentItem.classList.add('highlight');
+        currentItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        currentItem.focus(); // Set focus to the highlighted item
+      } else if (key === 'Enter') {
+        var highlightedItem = resultsContainer.querySelector('.search-results-item.highlight');
+        if (highlightedItem) {
+          var query = highlightedItem.textContent;
+          console.log(query);
+          this._onSearchItemClick(query);
+        }
+      }
+    }
+  },
+  
   _showSearchResults: function(matches) {
     var resultsContainer = this._container.querySelector('.search-results');
     resultsContainer.innerHTML = '';
