@@ -1,7 +1,7 @@
 # Leaflet.PinSearch
 <div align ="center">
 
-A leaflet plugin for a Search bar with autocomplete on existing pins on the map.
+A leaflet plugin for a Search bar component with autocomplete on all existing pins on the map.
 
 ### [**Demo**](https://mokahala.github.io/hosting/Leaflet.PinSearch/index.html)
 
@@ -21,15 +21,13 @@ A leaflet plugin for a Search bar with autocomplete on existing pins on the map.
 ### How to install plugin
 
 
-Option 1: Using npm
+Install using npm
 
 ```
 npm i leaflet.pinsearch
 ```
 
-Option 2: Using npkg CDN
-
-
+Include files using npkg CDN
 
 ```
     <link rel="stylesheet" href="https://unpkg.com/leaflet.pinsearch@1.0.0/src/Leaflet.PinSearch.css" crossorigin=""></script>
