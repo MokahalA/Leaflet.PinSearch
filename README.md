@@ -1,5 +1,9 @@
-# Leaflet.PinSearch
 <div align ="center">
+
+# Leaflet.PinSearch
+
+[![npm version](https://badge.fury.io/js/leaflet.pinsearch.svg)](https://badge.fury.io/js/leaflet.pinsearch)
+![Static Badge](https://img.shields.io/npm/dt/leaflet.pinsearch)
 
 A leaflet plugin for a Search bar component with autocomplete on all existing pins on the map.
 
@@ -16,9 +20,7 @@ A leaflet plugin for a Search bar component with autocomplete on all existing pi
 - Configurable limit for the maximum number of search results displayed.
 
 
-
-
-### How to install plugin
+### How to install the plugin
 
 
 Install using npm
@@ -70,3 +72,16 @@ See the `example.html` file for sample code.
             maxSearchResults: 3
         }).addTo(map);
 ```
+
+### `pinSearch` options
+
+
+Option                        | Description
+------------------------------| ------------
+`position`                    | Places the search control according to one of the following options: `topleft`, `topright`, `bottomleft`, `bottomright`
+`placeholder`                 | Placeholder text inside the search input.
+`buttonText`                  | Set this to `"Search"`
+`onSearch`                    | Function to handle the search query, the selected result is stored as `query`
+`searchBarWidth`              | Width of the search control (e.g. `200px`)
+`searchBarHeight`             | Height of the search control (e.g. `30px`)
+`maxSearchResults`            | Maximum amount of results to be shown by the autocomplete.
