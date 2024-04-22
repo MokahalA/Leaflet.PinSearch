@@ -206,6 +206,7 @@ L.Control.PinSearch = L.Control.extend({
   },
   
   _showSearchResults: function(matches) {
+    var self = this;
     var resultsContainer = this._container.querySelector('.search-results');
     resultsContainer.innerHTML = '';
 
@@ -219,6 +220,10 @@ L.Control.PinSearch = L.Control.extend({
         var item = document.createElement('div');
         item.className = 'search-results-item';
         item.textContent = match;
+        item.addEventListener('click', function() {
+          self._onSearchItemClick(match);
+          resultsContainer.style.display = 'none'; // Hide results after clicking on an item
+        });
         resultsContainer.appendChild(item);
       });
       resultsContainer.style.display = 'block';
