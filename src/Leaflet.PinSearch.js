@@ -80,6 +80,13 @@ L.Control.PinSearch = L.Control.extend({
     map.eachLayer(function(layer) {
       if (layer instanceof L.Marker && layer.options.title) {
         this.markerLabels.push(layer.options.title);
+      } else if (typeof L.MarkerCluster !== 'undefined' && layer instanceof L.MarkerCluster) {
+        // Use getAllChildMarkers to get all markers in the cluster, and add their titles to the list
+        layer.getAllChildMarkers().forEach((child) => {
+          if (child instanceof L.Marker && child.options.title) {
+            this.markerLabels.push(child.options.title);
+          }
+        });
       }
     }, this);
   },
